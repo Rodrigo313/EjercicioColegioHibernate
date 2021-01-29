@@ -10,6 +10,7 @@ import org.hibernate.query.Query;
 import com.kike.colegio.dao.AsignaturaDAO;
 import com.kike.colegio.dtos.AlumnoDTO;
 import com.kike.colegio.dtos.AsignaturaDTO;
+import com.kike.colegio.entities.AlumnoEntity;
 import com.kike.colegio.entities.AsignaturasEntity;
 import com.kike.colegio.utils.DBUtils;
 
@@ -40,8 +41,18 @@ public List<AsignaturaDTO> obtenerAsignaturaPorIdNombreCursoTasa(String id, Stri
 
 @Override
 public Integer insertarAsignatura(String id, String nombre, String curso, String tasa) {
-	// TODO Auto-generated method stub
-	return null;
+	AsignaturasEntity a = new AsignaturasEntity(Integer.parseInt(id), nombre, Integer.parseInt(curso), Double.parseDouble(tasa));
+	SessionFactory factory = DBUtils.creadorSessionFactory();
+	Session s = factory.getCurrentSession();
+	s.beginTransaction();
+	
+
+	 Integer idPk = (Integer) s.save(a);
+
+
+	s.getTransaction().commit();
+
+	return idPk;
 }
 
 @Override
