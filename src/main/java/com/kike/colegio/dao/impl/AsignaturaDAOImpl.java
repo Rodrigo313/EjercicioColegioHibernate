@@ -32,8 +32,8 @@ public class AsignaturaDAOImpl implements AsignaturaDAO{
 			asignaturasResultSet = ps.executeQuery();
 
 			while (asignaturasResultSet.next()) {
-				AsignaturaDTO a = new AsignaturaDTO(asignaturasResultSet.getString(1), asignaturasResultSet.getString(2), 
-											asignaturasResultSet.getString(3), asignaturasResultSet.getString(4));
+				AsignaturaDTO a = new AsignaturaDTO(asignaturasResultSet.getInt(1), asignaturasResultSet.getString(2), 
+											asignaturasResultSet.getInt(3), asignaturasResultSet.getDouble(4));
 				listaAsignaturas.add(a);
 			}
 		} catch (SQLException e) {

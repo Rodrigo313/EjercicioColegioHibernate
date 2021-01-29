@@ -2,58 +2,82 @@ package com.kike.colegio.dtos;
 
 public class AsignaturaDTO {
 	
-	private String id;
+	private int id;
 	private String nombre;
-	private String curso;
-	private String tasa;
+	private int curso;
+	private double tasa;
 	
-	
-	
-	
+	/**
+	 * 
+	 */
 	public AsignaturaDTO() {
 		super();
 	}
-	
-	
-	public AsignaturaDTO(String id, String nombre, String curso, String tasa) {
+	/**
+	 * @param id
+	 * @param nombre
+	 * @param curso
+	 * @param tasa
+	 */
+	public AsignaturaDTO(int id, String nombre, int curso, double tasa) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.curso = curso;
 		this.tasa = tasa;
 	}
-
-
-	public AsignaturaDTO(String id, String nombre, String curso) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.curso = curso;
-	}
-	public String getId() {
+	/**
+	 * @return the id
+	 */
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * @return the nombre
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+	/**
+	 * @param nombre the nombre to set
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getCurso() {
+	/**
+	 * @return the curso
+	 */
+	public int getCurso() {
 		return curso;
 	}
-	public void setCurso(String curso) {
+	/**
+	 * @param curso the curso to set
+	 */
+	public void setCurso(int curso) {
 		this.curso = curso;
 	}
-	public String getTasa() {
+	/**
+	 * @return the tasa
+	 */
+	public double getTasa() {
 		return tasa;
 	}
-	public void setTasa(String tasa) {
+	/**
+	 * @param tasa the tasa to set
+	 */
+	public void setTasa(double tasa) {
 		this.tasa = tasa;
 	}
+	
+	
+	
+	
 	
 	
 

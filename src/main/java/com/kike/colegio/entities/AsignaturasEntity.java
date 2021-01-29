@@ -28,9 +28,6 @@ public class AsignaturasEntity {
 	private Double tasa;
 	
 
-	@OneToMany(mappedBy = "alumnos")
-	List<MatriculacionesEntity> matriculaciones;
-
 	//Constructores, Getters y setters
 	
 	
@@ -46,14 +43,12 @@ public class AsignaturasEntity {
 		super();
 	}
 
-	public AsignaturasEntity(int id, String nombreAsignatura, int curso, Double tasa,
-			List<MatriculacionesEntity> matriculaciones) {
+	public AsignaturasEntity(int id, String nombreAsignatura, int curso, Double tasa) {
 		super();
 		this.id = id;
 		this.nombreAsignatura = nombreAsignatura;
 		this.curso = curso;
 		this.tasa = tasa;
-		this.matriculaciones = matriculaciones;
 	}
 
 	public int getId() {
@@ -86,14 +81,6 @@ public class AsignaturasEntity {
 
 	public void setTasa(Double tasa) {
 		this.tasa = tasa;
-	}
-
-	public List<MatriculacionesEntity> getMatriculaciones() {
-		return matriculaciones;
-	}
-
-	public void setMatriculaciones(List<MatriculacionesEntity> matriculaciones) {
-		this.matriculaciones = matriculaciones;
 	}
 
 	
