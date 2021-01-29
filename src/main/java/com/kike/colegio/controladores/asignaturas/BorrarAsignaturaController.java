@@ -13,6 +13,7 @@ import com.kike.colegio.dao.AlumnoDAO;
 import com.kike.colegio.dao.AsignaturaDAO;
 import com.kike.colegio.dao.impl.AlumnoDAOImpl;
 import com.kike.colegio.dao.impl.AsignaturaDAOImpl;
+import com.kike.colegio.dao.implhib.AsignaturaDAOImplHib;
 
 /**
  * Servlet Implation class BorrarAsignaturaController
@@ -41,7 +42,8 @@ public class BorrarAsignaturaController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AsignaturaDAO a = new AsignaturaDAOImpl();
+		//AsignaturaDAO a = new AsignaturaDAOImpl();
+		AsignaturaDAO a = new AsignaturaDAOImplHib();
 		
 		String id = request.getParameter("id");;
 		

@@ -72,8 +72,22 @@ public Integer actualizarAsignatura(String idOld, String idNew, String nombre, S
 
 @Override
 public Integer eliminarAsignatura(String id) {
-	// TODO Auto-generated method stub
-	return null;
+	SessionFactory factory = DBUtils.creadorSessionFactory();
+	Session s = factory.getCurrentSession();
+	
+	s.beginTransaction();
+	//Hibernate recupera la Entidad a borrar
+	AsignaturasEntity a = s.get(AsignaturasEntity.class, Integer.parseInt(id));
+	//Borra la entidad
+    if (a != null) {
+        s.delete(a);
+        s.getTransaction().commit(); 
+    	s.close();
+    	
+        return 1;
+    }
+	s.close();
+    return 0;
 }
 
 @Override
