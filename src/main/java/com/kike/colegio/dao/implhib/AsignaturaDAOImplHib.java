@@ -57,8 +57,17 @@ public Integer insertarAsignatura(String id, String nombre, String curso, String
 
 @Override
 public Integer actualizarAsignatura(String idOld, String idNew, String nombre, String curso, String tasa) {
-	// TODO Auto-generated method stub
-	return null;
+	
+	AsignaturasEntity a = new AsignaturasEntity(Integer.parseInt(idNew), nombre, Integer.parseInt(curso), Double.parseDouble(tasa));
+	
+	SessionFactory factory = DBUtils.creadorSessionFactory();
+	Session s = factory.getCurrentSession();
+	
+	s.beginTransaction();
+	s.update(a);
+	s.getTransaction().commit();
+
+	return a.getId();
 }
 
 @Override

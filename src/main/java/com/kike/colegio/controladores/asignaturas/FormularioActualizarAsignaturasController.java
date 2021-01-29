@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kike.colegio.dao.AlumnoDAO;
 import com.kike.colegio.dao.AsignaturaDAO;
 import com.kike.colegio.dao.impl.AsignaturaDAOImpl;
+import com.kike.colegio.dao.implhib.AsignaturaDAOImplHib;
 import com.kike.colegio.utils.ComboUtils;
 
 /**
@@ -47,7 +48,8 @@ public class FormularioActualizarAsignaturasController extends HttpServlet {
 		String curso = request.getParameter("curso");
 		String tasa = request.getParameter("tasa");
 		
-		AsignaturaDAO a = new AsignaturaDAOImpl();
+		//AsignaturaDAO a = new AsignaturaDAOImpl();
+		AsignaturaDAO a = new AsignaturaDAOImplHib();
 		
 		request.setAttribute("lista", a.obtenerAsignaturaPorIdNombreCursoTasa(id, nombre, curso, tasa));
 		
