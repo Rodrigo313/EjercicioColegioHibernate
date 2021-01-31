@@ -80,14 +80,39 @@ public class NotaDAOImplHib implements NotaDAO {
 
 	@Override
 	public Integer actualizarNota(String idNota, String idAlumno, String idAsignatura, String nota, String fecha) {
-		// TODO Auto-generated method stub
-		return null;
+		SessionFactory factory = DBUtils.creadorSessionFactory();
+		Session s = factory.getCurrentSession();
+		s.beginTransaction();
+		
+		AlumnoEntity a = s.find(AlumnoEntity.class, Integer.parseInt(idAlumno));
+		AsignaturasEntity asi = s.find(AsignaturasEntity.class, Integer.parseInt(idAsignatura));
+		
+		NotaEntity n = new NotaEntity(Integer.parseInt(idNota), a, asi, Double.parseDouble(nota), fecha);
+		
+		s.update(n);
+		s.getTransaction().commit();
+		
+		return a.getId();
+		
 	}
 
 	@Override
 	public Integer eliminarNota(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		SessionFactory factory = DBUtils.creadorSessionFactory();
+		Session s = factory.getCurrentSession();
+		s.beginTransaction();
+		
+		NotaEntity n = s.get(NotaEntity.class, Integer.parseInt(id));
+		
+		if(n != null) {
+			s.delete(n);
+			s.getTransaction().commit();
+			s.close();
+			
+			return 1;
+		}
+		s.close();
+		return 0;
 	}
 
 

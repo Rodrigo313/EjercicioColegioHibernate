@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kike.colegio.dao.NotaDAO;
 import com.kike.colegio.dao.impl.NotaDAOImpl;
+import com.kike.colegio.dao.implhib.NotaDAOImplHib;
 
 /**
  * Servlet Implation class ListadoNotasController
@@ -45,7 +46,8 @@ public class ListadoNotasController extends HttpServlet {
 		String nota = request.getParameter("nota");
 		String fecha = request.getParameter("fecha");
 		
-		NotaDAO n = new NotaDAOImpl();
+		//NotaDAO n = new NotaDAOImpl();
+		NotaDAO n = new NotaDAOImplHib();
 		
 		
 		
