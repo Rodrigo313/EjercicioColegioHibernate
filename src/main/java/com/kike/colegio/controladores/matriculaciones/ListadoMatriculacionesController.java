@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kike.colegio.dao.MatriculacionDAO;
 import com.kike.colegio.dao.impl.MatriculacionDAOImpl;
+import com.kike.colegio.dao.implhib.MatriculacionesDAOImplHib;
 import com.kike.colegio.dtos.MatriculacionDTO;
 
 /**
@@ -50,6 +51,7 @@ public class ListadoMatriculacionesController extends HttpServlet {
 		String activo = request.getParameter("activo");
 		
 		MatriculacionDAO m = new MatriculacionDAOImpl();
+		
 		
 		List<MatriculacionDTO> listaMatriculaciones = m.obtenerMatriculacionesPorIdasigNombreAsigIdalumNombrealumFechaActivo(idAsig, nombreAsig, idAlum, nombreAlum, fecha, activo);
 		

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kike.colegio.dao.MatriculacionDAO;
 import com.kike.colegio.dao.impl.MatriculacionDAOImpl;
+import com.kike.colegio.dao.implhib.MatriculacionesDAOImplHib;
 
 /**
  * Servlet Implation class BorrarMatriculacionesController
@@ -42,6 +43,7 @@ public class BorrarMatriculacionesController extends HttpServlet {
 		String idMatricula = request.getParameter("idMatricula");
 		
 		MatriculacionDAO m = new MatriculacionDAOImpl();
+		
 		
 		Integer resultado = m.borrarMatriculacion(idMatricula);
 		

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kike.colegio.dao.MatriculacionDAO;
 import com.kike.colegio.dao.impl.MatriculacionDAOImpl;
+import com.kike.colegio.dao.implhib.MatriculacionesDAOImplHib;
 import com.kike.colegio.utils.ComboUtils;
 
 
@@ -57,6 +58,7 @@ public class InsertarMatriculacionesController extends HttpServlet {
 		String fecha = request.getParameter("fecha");
 		
 		MatriculacionDAO m = new MatriculacionDAOImpl();
+		
 		
 		Integer resultado = m.insertarMatriculacion(idAsignatura, idAlumno, tasa, fecha);
 		
