@@ -13,7 +13,7 @@ public class ComboUtils {
 
 	
 	public static void recuperacionComboMunicipios(HttpServletRequest request) {
-		CombosDAO comboMunicipio = new CombosDAOImpl();
+		CombosDAO comboMunicipio = new CombosDAOImplHib();
 		List<ComboDTO> listaMunicipios = comboMunicipio.comboMunicipios();
 		request.setAttribute("comboMunicipios", listaMunicipios);
 	}
@@ -27,12 +27,12 @@ public class ComboUtils {
 	
 	
 	public static void recuperarComboAlumnos(HttpServletRequest request) {	
-		CombosDAO c = new CombosDAOImpl();		
+		CombosDAO c = new CombosDAOImplHib();		
 		request.setAttribute("listaAlumnos", c.comboAlumnos());
 	}
 	
 	public static void recuperarComboAsignaturas(HttpServletRequest request) {		
-		CombosDAO c = new CombosDAOImpl();		
+		CombosDAO c = new CombosDAOImplHib();		
 		request.setAttribute("listaAsignaturas", c.comboAsignaturas());
 	}
 }

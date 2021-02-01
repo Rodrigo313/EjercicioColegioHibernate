@@ -38,58 +38,36 @@ public class CombosDAOImplHib implements CombosDAO{
 	
 	@Override
 	public List<ComboDTO> comboAlumnos() {
-		String sql = "SELECT * FROM alumnos ORDER BY nombre";
+		String hql = "select new com.kike.colegio.dtos.ComboDTO (a.id, a.nombre)" + "FROM AlumnoEntity a";
 		List<ComboDTO> listaAlumnos = new ArrayList<>();
 		
-		try {
-			Connection connection = DBUtils.DBConnection();			
-			
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();			
+		SessionFactory factory = DBUtils.creadorSessionFactory();
+		Session s = factory.getCurrentSession();
+		s.beginTransaction();
 
-			while (rs.next()) {
 
-				ComboDTO a = new ComboDTO(rs.getInt(1), rs.getString(2));
-				listaAlumnos.add(a);
+		Query query = s.createQuery(hql);
+		List<ComboDTO> lista = query.getResultList();
+		s.close(); // Cerramos la sesión
 
-			}
-
-			return listaAlumnos;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	
-		return null;
+		return lista;
 	}
 
 	@Override
 	public List<ComboDTO> comboAsignaturas() {
-		String sql = "SELECT * FROM asignaturas ORDER BY nombre";
+		String hql = "select new com.kike.colegio.dtos.ComboDTO (a.id, a.nombre)" + "FROM AsignaturasEntity a";
 		List<ComboDTO> listaAsignaturas = new ArrayList<>();
 		
-		try {
-			Connection connection = DBUtils.DBConnection();			
-			
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();			
+		SessionFactory factory = DBUtils.creadorSessionFactory();
+		Session s = factory.getCurrentSession();
+		s.beginTransaction();
 
-			while (rs.next()) {
 
-				ComboDTO a = new ComboDTO(rs.getInt(1), rs.getString(2));
-				listaAsignaturas.add(a);
+		Query query = s.createQuery(hql);
+		List<ComboDTO> lista = query.getResultList();
+		s.close(); // Cerramos la sesión
 
-			}
-
-			return listaAsignaturas;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	
-		return null;
+		return lista;
 	}
 
 }

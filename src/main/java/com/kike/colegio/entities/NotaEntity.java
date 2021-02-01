@@ -55,20 +55,6 @@ public class NotaEntity {
 	}
 
 	/**
-	 * @param alumnos
-	 * @param asignaturas
-	 * @param nota
-	 * @param fecha
-	 */
-	public NotaEntity(AlumnoEntity alumnos, AsignaturasEntity asignaturas, Double nota, String fecha) {
-		super();
-		this.alumnos = alumnos;
-		this.asignaturas = asignaturas;
-		this.nota = nota;
-		this.fecha = fecha;
-	}
-
-	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
@@ -152,6 +138,20 @@ public class NotaEntity {
 	 */
 	public NotaEntity() {
 		super();
+	}
+	
+	/**
+	 * @param alumnos
+	 * @param asignaturas
+	 * @param nota
+	 * @param fecha
+	 */
+	public NotaEntity(AlumnoEntity alumnos, AsignaturasEntity asignaturas, Double nota, String fecha) {
+		super();
+		this.alumnos = alumnos;
+		this.asignaturas = asignaturas;
+		this.nota = nota;
+		this.fecha = fecha;
 	}
 }
 	

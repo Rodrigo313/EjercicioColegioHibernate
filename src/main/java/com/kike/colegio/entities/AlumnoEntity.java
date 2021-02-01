@@ -34,15 +34,6 @@ public class AlumnoEntity {
 	
 	//Constructores, Getters y setters 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public AlumnoEntity() {
 		super();
 	}
@@ -52,6 +43,7 @@ public class AlumnoEntity {
 		this.id = id;
 		this.nombre = nombre;
 		this.idMunicipio = idMunicipio;
+	
 		this.famNumerosa = famNumerosa;
 	}
 

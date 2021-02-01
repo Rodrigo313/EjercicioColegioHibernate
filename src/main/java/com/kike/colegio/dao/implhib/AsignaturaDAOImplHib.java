@@ -51,6 +51,8 @@ public Integer insertarAsignatura(String id, String nombre, String curso, String
 
 
 	s.getTransaction().commit();
+	
+	s.close();
 
 	return idPk;
 }
@@ -66,6 +68,8 @@ public Integer actualizarAsignatura(String idOld, String idNew, String nombre, S
 	s.beginTransaction();
 	s.update(a);
 	s.getTransaction().commit();
+	
+	s.close();
 
 	return a.getId();
 }

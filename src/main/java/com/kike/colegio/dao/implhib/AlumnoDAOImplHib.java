@@ -63,6 +63,8 @@ public class AlumnoDAOImplHib implements AlumnoDAO {
 
 
 		s.getTransaction().commit();
+		
+		s.close();
 
 		return idPk;
 	}
@@ -82,6 +84,8 @@ public class AlumnoDAOImplHib implements AlumnoDAO {
 		s.beginTransaction();
 		s.update(a);
 		s.getTransaction().commit();
+		
+		s.close();
 
 		return a.getId();
 	}
