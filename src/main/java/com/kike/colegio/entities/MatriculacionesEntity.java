@@ -59,6 +59,24 @@ public class MatriculacionesEntity {
 
 
 
+	/**
+	 * @param fecha
+	 * @param activo
+	 * @param alumnos
+	 * @param asignaturas
+	 */
+	public MatriculacionesEntity(int fecha, int activo, AlumnoEntity alumnos, AsignaturasEntity asignaturas) {
+		super();
+		this.fecha = fecha;
+		this.activo = activo;
+		this.alumnos = alumnos;
+		this.asignaturas = asignaturas;
+	}
+
+
+
+
+
 	public MatriculacionesEntity() {
 		super();
 	}

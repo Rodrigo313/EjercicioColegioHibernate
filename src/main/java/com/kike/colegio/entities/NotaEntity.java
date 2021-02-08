@@ -133,13 +133,15 @@ public class NotaEntity {
 		this.fecha = fecha;
 	}
 
+	
+	
 	/**
 	 * 
 	 */
 	public NotaEntity() {
 		super();
 	}
-	
+
 	/**
 	 * @param alumnos
 	 * @param asignaturas
